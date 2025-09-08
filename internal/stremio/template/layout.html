@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%2210 0 100 100%22><text y=%22.90em%22 font-size=%2290%22>✨</text></svg>"></link>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <script
+      src="https://unpkg.com/htmx.org@2.0.4"
+      integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+"
+      crossorigin="anonymous"
+    ></script>
+    <title>{{.Title}}</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 48px;
+      }
+      
+      a > code,
+      span > code {
+        padding: 0;
+      }
+
+      nav #nav-home a {
+        color: initial;
+        text-decoration: none;
+      }
+
+      .absolute {
+        position: absolute;
+      }
+      .relative {
+        position: relative;
+      }
+
+      .w-full {
+        width: 100%;
+      }
+
+      .border {
+        border-width: 1px;
+      }
+      .rounded-sm {
+        border-radius: 0.25rem;
+      }
+      .border-dashed {
+        border-style: dashed;
+      }
+
+      .p-1 {
+        padding: 0.25rem;
+      }
+      .p-4 {
+        padding: 1rem;
+      }
+      .px-2 {
+        padding-inline: 0.5rem;
+      }
+      .px-4 {
+        padding-inline: 1rem;
+      }
+      .py-1 {
+        padding-block: 0.25rem;
+      }
+      .mt-4 {
+        margin-top: 1rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .mb-0 {
+        margin-bottom: 0;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .ml-4 {
+        margin-left: 1rem;
+      }
+      .mr-2 {
+        margin-right: 0.5rem;
+      }
+      .my-4 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .flex {
+        display: flex;
+      }
+      .flex-row {
+        flex-direction: row;
+      }
+      .flex-wrap {
+        flex-wrap: wrap;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .grow {
+        flex-grow: 1;
+      }
+      .grow-0 {
+        flex-grow: 0;
+      }
+      .align-center {
+        align-items: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+    </style>
+
+
+    {{block "head" .}}{{end}}
+
+    <script>
+    htmx.defineExtension("htmx-modal", {
+      onEvent: (name, evt) => {
+        if (name == "htmx:afterProcessNode") {
+          const trigger = evt.target;
+          const modalSelector = trigger.dataset.modal;
+          const modalOnOpenFnName = trigger.dataset.modalOnOpen;
+
+          function onClose() {
+            const modal = document.querySelector(modalSelector);
+            modal.removeAttribute("open");
+            document.querySelector("html").classList.remove("modal-is-open");
+            modal.replaceWith(modal.cloneNode(true));
+          }
+
+          trigger.addEventListener("click", function(e) {
+            const modal = document.querySelector(modalSelector);
+
+            modal.querySelector(modalSelector + " [data-modal-close]")
+              ?.addEventListener("click", onClose);
+
+            window[modalOnOpenFnName](e, { modal, onClose, trigger });
+
+            function onOutsideClick(e) {
+              const content = modal.querySelector("article");
+              if (!content.contains(e.target)) {
+                onClose();
+                modal.removeEventListener("click", onOutsideClick);
+              }
+            }
+
+            modal.addEventListener("click", onOutsideClick);
+
+            document.querySelector("html").classList.add("modal-is-open");
+            modal.setAttribute("open", "");
+          });
+        }
+        return true;
+      },
+    })
+    </script>
+  </head>
+
+  <body class="container">
+    <nav>
+      <ul>
+        <li id="nav-home">
+          <strong>
+            <a href="/">
+              ✨ StremThru
+              <small>
+                <sup>v{{.Version}}</sup>
+              </small>
+            </a>
+          </strong>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="https://github.com/MunifTanjim/stremthru" class="secondary" target="_blank">GitHub</a></li>
+        {{if ne .NavTitle ""}}
+        <li>
+          <details class="dropdown">
+            <summary>
+              {{.NavTitle}}
+            </summary>
+            <ul dir="rtl">
+              <li><a href="/stremio/">Stremio</a></li>
+              {{range .StremThruAddons}}
+              <li><a href="{{.URL}}">{{.Name}}</a></li>
+              {{end}}
+            </ul>
+          </details>
+        </li>
+        {{end}}
+      </ul>
+    </nav>
+
+    <header>
+      {{block "header" .}}{{end}}
+    </header>
+
+    <main>
+      {{block "main" .}}{{end}}
+    </main>
+
+    <footer>
+      {{block "footer" .}}{{end}}
+
+      <section class="text-center">
+        <small>
+          <a href="https://github.com/MunifTanjim/stremthru" class="secondary" target="_blank">⭐️ GitHub</a>
+          ·
+          <a href="https://buymeacoffee.com/muniftanjim" class="secondary" target="_blank">💜 Donate</a>
+        </small>
+      </section>
+    </footer>
+
+    {{block "foot" .}}{{end}}
+  </body>
+</html>

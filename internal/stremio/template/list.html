@@ -1,0 +1,433 @@
+{{define "head"}}
+<style>
+</style>
+{{end}}
+
+{{define "header"}}
+<h1>
+  {{.Title}}
+</h1>
+<div>
+  <p>{{.Description}}</p>
+</div>
+{{end}}
+
+{{define "main"}}
+
+{{if .CanAuthorize}}
+<div class="flex flex-row flex-wrap align-center justify-between mb-8">
+  <div>
+    {{template "saved_userdata_field.html" .}}
+  </div>
+  <div>
+    <button
+      class="secondary mb-0"
+      style="font-size: 0.75rem; padding: 0.25em 0.75em;"
+      type="button"
+      hx-ext="htmx-modal"
+      data-modal="#auth_modal"
+      data-modal-on-open="onOpenAuthorize"
+      hx-target="body"
+      hx-post="configure"
+      hx-include="#configuration"
+      hx-headers='{"x-addon-configure-action":"{{if .IsAuthed}}de{{end}}authorize"}'
+      hx-trigger="confirmed"
+      data-tooltip="Features Restricted to Admin"
+    >
+      {{if .IsAuthed}}Deauthorize{{else}}Authorize{{end}}
+    </button>
+  </div>
+</div>
+{{end}}
+
+<div class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+  <p class="mb-2">
+    Supported Services
+  </p>
+  <div class="mb-4">
+    {{range .SupportedServices}}
+    <button
+      class="outline secondary mr-2"
+      style="font-size: 0.75rem; padding: 0.25em 0.4rem;"
+      hx-ext="htmx-modal"
+      data-modal="#supported_service_modal"
+      data-modal-on-open="onOpenSupportedService"
+      data-name="{{.Name}}"
+      data-hostname="{{.Hostname}}"
+      data-urls="{{range .URLs}}{{.Pattern}}{{"\n"}}{{range .Examples}}{{.}}{{"\n"}}{{end}}{{"\n"}}{{end}}"
+    >
+      <img src="{{.Icon}}" height="16" width="16" />
+      {{.Hostname}}
+    </button>
+    {{end}}
+  </div>
+
+  <dialog id="supported_service_modal">
+    <article>
+      <header>
+        <button aria-label="Close" rel="prev" data-modal-close></button>
+        <h3>
+          <span id="supported_service_name"></span>
+        </h3>
+      </header>
+      <div>
+        <p>
+          <strong>Site: </strong><a id="supported_service_site" href="" target="_blank"></a>
+        </p>
+        <div>
+          <strong>Supported URLs</strong>
+          <ul id="supported_service_urls" class="p-1">
+            <li data-type="supported_service_url_template" style="display: none;">
+              <code data-field="pattern"></code>
+              <ul data-field="examples" class="p-1 ml-4"></ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </dialog>
+</div>
+
+<form
+  id="configuration" action="configure" method="post" hx-boost="true"
+  {{if .IsRedacted}}inert{{end}}
+>
+  <div id="mdblist" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        MDBList
+      </span>
+    </header>
+
+    {{template "configure_config.html" .MDBListAPIKey}}
+
+    <div class="absolute" style="bottom: -0.5rem; right: 1rem;">
+      <button
+        {{if not .CanAddList}}disabled{{end}}
+        id="configure-action-import-mdblist-mylists"
+        type="button"
+        hx-target="body"
+        hx-post="configure"
+        hx-include="#configuration"
+        hx-headers='{"x-addon-configure-action":"import-mdblist-mylists"}'
+        class="secondary mb-0"
+        style="font-size: 0.75rem; padding: 0.25em;"
+      >
+        Import MDBList Lists
+      </button>
+    </div>
+  </div>
+
+  {{if not .TMDBTokenId.Hidden}}
+  <div id="tmdb" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        TMDB
+      </span>
+    </header>
+
+    {{template "configure_config.html" .TMDBTokenId}}
+  </div>
+  {{end}}
+
+  {{if not .TraktTokenId.Hidden}}
+  <div id="trakt" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        Trakt.tv
+      </span>
+    </header>
+
+    {{template "configure_config.html" .TraktTokenId}}
+  </div>
+  {{end}}
+
+  <div id="lists" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        Lists
+      </span>
+    </header>
+
+    <div class="relative">
+      <div class="relative mb-8">
+
+        <input type="hidden" name="lists_length" value="{{ .Lists | len }}" />
+
+        {{range $idx, $list := .Lists}}
+        <div class="relative border border-dashed rounded-sm my-4 p-4" style="border-color: gray">
+          <input type="hidden" id="lists[{{$idx}}].id" name="lists[{{$idx}}].id" value="{{$list.Id}}" />
+
+          <div class="relative">
+            <label for="lists[{{$idx}}].url">URL</label>
+            <input type="url" id="lists[{{$idx}}].url" name="lists[{{$idx}}].url" value="{{$list.URL}}" {{if ne $list.Error.URL ""}}aria-invalid="true"{{end}} {{if $list.Disabled.URL}}disabled{{end}} />
+            <small><span class="error">{{$list.Error.URL}}</span><span class="description"></span></small>
+
+            <div class="absolute" style="top: 0; right: 0;">
+              {{if ne $list.URL ""}}
+              <a role="button" href="{{$list.URL}}" target="_blank" style="font-size: 0.75rem; padding: 0.25em;">Open</a>
+              {{end}}
+            </div>
+          </div>
+
+          {{if $.IsAuthed}}
+          <div class="flex flex-row flex-wrap gap-4">
+            <div class="grow">
+              <label for="lists[{{$idx}}].name">Name</label>
+              <input type="text" id="lists[{{$idx}}].name" name="lists[{{$idx}}].name" value="{{$list.Name}}" {{if ne $list.Error.Name ""}}aria-invalid="true"{{end}} />
+              <small><span class="error">{{$list.Error.Name}}</span><span class="description"></span></small>
+            </div>
+            <div class="grow">
+              <label for="lists[{{$idx}}].type">Type</label>
+              <input type="text" id="lists[{{$idx}}].type" name="lists[{{$idx}}].type" value="{{$list.Type}}" {{if ne $list.Error.Type ""}}aria-invalid="true"{{end}} />
+              <small><span class="error">{{$list.Error.Type}}</span><span class="description"></span></small>
+            </div>
+          </div>
+          {{end}}
+
+          {{template "configure_config.html" $list.Shuffle}}
+
+          <div class="absolute" style="top: 2.125rem; left: -0.5rem;">
+            <small>
+              {{if ne $list.Id ""}}
+              <button
+                {{if eq $idx 0}}disabled{{end}}
+                aria-label="Move Up: {{$list.URL}}"
+                data-tooltip="Move Up"
+                type="button"
+                hx-target="body"
+                hx-post="configure"
+                hx-include="#configuration"
+                hx-headers='{"x-addon-configure-action":"move-list-up","x-addon-configure-action-data":"{{$list.Id}}"}'
+                class="secondary mb-6"
+                style="font-size: 0.75rem; padding: 0 0.25em;"
+              >
+                ↑
+              </button>
+              <br />
+              <button
+                {{if eq $idx $.LastListIndex}}disabled{{end}}
+                aria-label="Move Down: {{$list.URL}}"
+                data-tooltip="Move Down"
+                type="button"
+                hx-target="body"
+                hx-post="configure"
+                hx-include="#configuration"
+                hx-headers='{"x-addon-configure-action":"move-list-down","x-addon-configure-action-data":"{{$list.Id}}"}'
+                class="secondary mb-0"
+                style="font-size: 0.75rem; padding: 0 0.25em;"
+              >
+                ↓
+              </button>
+              {{end}}
+            </small>
+          </div>
+          <div class="absolute" style="bottom: -0.75rem; right: 1rem;">
+            <small>
+              <button
+                {{if not $.CanRemoveList}}disabled{{end}}
+                id="configure-action-remove-list"
+                type="button"
+                hx-target="body"
+                hx-post="configure"
+                hx-include="#configuration"
+                hx-headers='{"x-addon-configure-action":"remove-list","x-addon-configure-action-data":"{{$idx}}"}'
+                class="secondary mb-0"
+                style="font-size: 0.75rem; padding: 0 0.25em;"
+              >
+                - Remove
+              </button>
+              <button
+                {{if not $.CanAddList}}disabled{{end}}
+                id="configure-action-add-list"
+                type="button"
+                hx-target="body"
+                hx-post="configure"
+                hx-include="#configuration"
+                hx-headers='{"x-addon-configure-action":"add-list","x-addon-configure-action-data":"{{$idx}}"}'
+                class="secondary mb-0"
+                style="font-size: 0.75rem; padding: 0 0.25em;"
+              >
+                + Add
+              </button>
+            </small>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+  </div>
+
+  <div id="rpdb" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        RPDB
+      </span>
+    </header>
+
+    {{template "configure_config.html" .RPDBAPIKey}}
+  </div>
+
+  <div id="meta_id" class="relative border border-dashed rounded-sm mb-4 p-4" style="border-color: gray">
+    <header class="w-full flex flex-row justify-between absolute px-4" style="top: -0.75rem; left: 0;">
+      <span class="px-2" style="background-color: var(--pico-background-color);">
+        Preferred Meta ID
+      </span>
+    </header>
+    <div class="flex flex-row flex-wrap gap-4">
+      <div class="grow">
+        {{template "configure_config.html" .MetaIdMovie}}
+      </div>
+      <div class="grow">
+        {{template "configure_config.html" .MetaIdSeries}}
+      </div>
+      <div class="grow">
+        {{template "configure_config.html" .MetaIdAnime}}
+      </div>
+    </div>
+  </div>
+
+  {{template "configure_config.html" .Shuffle}}
+
+  {{template "configure_submit_button.html" .}}
+</form>
+
+{{if ne .ManifestURL ""}}
+<div id="manifest_url_section">
+  <label for="__manifest_url__">Manifest URL</label>
+  <fieldset role="group">
+    <input id="__manifest_url__" value="{{.ManifestURL}}" readonly />
+    <button type="button" onclick="copyManifestUrl()">Copy</button>
+  </fieldset>
+</div>
+{{end}}
+
+{{if .CanAuthorize}}
+<dialog id="auth_modal">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" data-modal-close></button>
+      <h3>
+        <span>{{if .IsAuthed}}Deauthorize{{else}}Authorize{{end}}</span>
+      </h3>
+    </header>
+    <form>
+      {{if not .IsAuthed}}
+      <label for="user">User *</label>
+      <input type="text" name="user" required {{if ne .AuthError ""}}aria-invalid="true"{{end}}>
+      <label for="user">Password *</label>
+      <input type="password" name="pass" required {{if ne .AuthError ""}}aria-invalid="true"{{end}}>
+      {{if ne .AuthError ""}}
+      <small>{{.AuthError}}</small>
+      {{end}}
+      {{end}}
+      <button type="submit">Go</button>
+    </form>
+  </article>
+</dialog>
+{{end}}
+
+{{end}}
+
+{{define "foot"}}
+<script>
+  {{if and .CanAuthorize (ne .AuthError "")}}
+  htmx.on("htmx:load", function(evt) {
+    setTimeout(() => {
+      document.querySelector("[data-modal-on-open='onOpenAuthorize']").click();
+    }, 200);
+  }, { once: true });
+  {{end}}
+
+  function onOpenAuthorize(e, { modal, onClose, trigger }) {
+    modal.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      {{if not .IsAuthed}}
+      trigger.setAttribute("hx-vals", JSON.stringify({
+        user: modal.querySelector("[name='user']").value,
+        pass: modal.querySelector("[name='pass']").value,
+      }));
+      {{end}}
+      onClose();
+      htmx.trigger(trigger, "confirmed");
+    }, { once: true });
+  }
+
+  function onOpenSupportedService(e, { modal, onClose, trigger }) {
+    modal.querySelector("#supported_service_name").textContent = trigger.dataset.name;
+
+    modal.querySelector("#supported_service_site").href = "https://" + trigger.dataset.hostname;
+    modal.querySelector("#supported_service_site").textContent = trigger.dataset.hostname;
+
+    const hostname = trigger.dataset.hostname;
+    const urls = decodeURIComponent(trigger.dataset.urls.trim()).split("\n\n").filter(Boolean).map((line) => {
+      const [pattern, ...examples] = line.split("\n");
+      return {
+        pattern: pattern,
+        examples: examples.length ? examples : [pattern],
+      };
+    });
+
+    const urlsList = modal.querySelector("ul#supported_service_urls");
+    urlsList.querySelectorAll(`[data-type="supported_service_url"]`).forEach((node) => {
+      node.parentNode.removeChild(node);
+    });
+
+    if (urls.length) {
+      const itemTemplate = urlsList.querySelector(`[data-type="supported_service_url_template"]`);
+      urls.forEach((url) => {
+        const item = itemTemplate.cloneNode(true);
+        item.style.display = "block";
+        item.dataset.type = "supported_service_url";
+
+        item.querySelector("[data-field='pattern']").textContent = url.pattern;
+        const examples = url.examples.map((example) => {
+          return `<li><a href="https://${hostname}${example}" target="_blank">${example}</a></li>`
+        }); 
+        item.querySelector("[data-field='examples']").innerHTML = examples.join("\n");
+
+        urlsList.appendChild(item);
+      });
+    }
+  }
+
+  function copyManifestUrl() {
+    const manifestUrl = document.querySelector("input#__manifest_url__")?.value;
+    if (!manifestUrl) {
+      return;
+    }
+    navigator.clipboard.writeText(manifestUrl);
+    return manifestUrl;
+  }
+
+  htmx.off("form#configuration", "try_install");
+  htmx.on("form#configuration", "try_install", function(evt) {
+    const manifestUrl = copyManifestUrl();
+    if (manifestUrl) {
+      window.location.href = manifestUrl.replace(/^.+:\/\//, 'stremio://');
+    }
+  });
+
+  htmx.off("form#configuration", "htmx:beforeRequest");
+  htmx.on("form#configuration", "htmx:beforeRequest", function(evt) {
+    if (evt.detail.elt.id === "configuration") {
+      evt.detail.elt.querySelector("button[type='submit']").ariaBusy = true;
+    } else {
+      evt.detail.elt.ariaBusy = true;
+    }
+  });
+  htmx.off("form#configuration", "htmx:afterRequest");
+  htmx.on("form#configuration", "htmx:afterRequest", function(evt) {
+    if (evt.detail.elt.id === "configuration") {
+      evt.detail.elt.querySelector("button[type='submit']").ariaBusy = false;
+    } else {
+      evt.detail.elt.ariaBusy = false;
+    }
+  });
+  htmx.on("form#configuration", "change", function(evt) {
+    document.querySelector('#manifest_url_section')?.remove();
+  }, { once: true });
+</script>
+{{end}}
+
+{{template "layout.html" .}}

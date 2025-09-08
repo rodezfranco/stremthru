@@ -1,0 +1,545 @@
+<section id="addons_section" hx-swap="outerHTML"  data-operation="{{.AddonOperation}}">
+
+<style>
+#addons_section:not([data-operation="move"]) #addon_operation_move {
+  display: none;
+}
+#addons_section:not([data-operation="manage"]) #addon_operation_manage {
+  display: none;
+}
+#addons_section:not([data-operation="move"]):not([data-operation="manage"]) #addons_list {
+  display: none;
+}
+#addons_section:not([data-operation="backup"]) #addons_backup {
+  display: none;
+}
+#addon_error pre {
+  color: #ad2201;
+  padding: 1rem;
+}
+</style>
+
+<header class="flex flex-row flex-wrap justify-between">
+  <div>
+    <select name="addon_operation" aria-label="Addon Operation" required onchange="onAddonOperationChange(this)">
+      <option disabled value="">Operation</option>
+      <option {{if eq .AddonOperation "move"}}selected{{end}} value="move">Move</option>
+      <option {{if eq .AddonOperation "manage"}}selected{{end}} value="manage">Manage</option>
+      <option {{if eq .AddonOperation "backup"}}selected{{end}} value="backup">Backup/Restore</option>
+    </select>
+  </div>
+  <div>
+    <button
+      hx-ext="htmx-modal"
+      data-modal="#addon_install_modal"
+      data-modal-on-open="onOpenAddonInstallModal"
+      hx-post="addons"
+      hx-target="#addons_section"
+      hx-trigger="confirmed"
+    >
+      Install
+    </button>
+    <button id="load_addons" hx-get="addons" hx-target="#addons_section" hx-trigger="click, addons_load">
+      {{if eq (len .Addons) 0}}Load{{else}}Refresh{{end}}
+    </button>
+  </div>
+</header>
+
+{{if ne .AddonError ""}}
+<section id="addon_error">
+  <pre>{{.AddonError}}</pre>
+</section>
+{{end}}
+
+<div id="addons_list">
+  {{range $idx, $addon := .Addons}}
+  <article>
+    <header class="flex flex-row flex-wrap justify-between align-center">
+      <div class="flex flex-row align-center" style="gap: 8px;">
+        {{if ne .Manifest.Logo ""}}
+        <img src="{{.Manifest.Logo}}" height="32" width="32" />
+        {{end}}
+        <h3 class="mb-0">
+          {{.Manifest.Name}}
+          <small>
+            <sup>v{{.Manifest.Version}}</sup>
+          </small>
+        </h3>
+      </div>
+      <div>
+        {{if not .Flags.Protected}}
+        <button
+          style="
+          --pico-background-color: #ad2201;
+          "
+          hx-ext="htmx-modal"
+          data-modal="#addon_uninstall_modal"
+          data-modal-on-open="onOpenAddonUninstallModal"
+          hx-delete="addons/{{.TransportUrl | url_path_escape}}"
+          hx-target="#addons_section"
+          hx-trigger="confirmed"
+          data-name="{{.Manifest.Name}}"
+          data-version="{{.Manifest.Version}}"
+        >
+          Uninstall
+        </button>
+        {{end}}
+        {{if not (has_prefix .Manifest.ID "st:disabled:")}}
+          {{with (get_configure_url .)}}
+            <a role="button" href="{{.}}" target="_blank">Configure</a>
+          {{end}}
+        {{end}}
+      </div>
+    </header>
+
+    <div id="addon_operation_move" role="group" class="flex-wrap">
+      <button
+        {{if eq $idx 0}}disabled{{end}}
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/move/top"
+        hx-target="#addons_section"
+        aria-label="Move to Top"
+        data-tooltip="Top"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 18.75 7.5-7.5 7.5 7.5" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 7.5-7.5 7.5 7.5" />
+        </svg>
+      </button>
+      <button
+        {{if eq $idx 0}}disabled{{end}}
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/move/up"
+        hx-target="#addons_section"
+        aria-label="Move Up"
+        data-tooltip="Up"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+        </svg>
+      </button>
+      <button
+        {{if eq $idx $.LastAddonIndex}}disabled{{end}}
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/move/down"
+        hx-target="#addons_section"
+        aria-label="Move Down"
+        data-tooltip="Down"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
+      <button
+        {{if eq $idx $.LastAddonIndex}}disabled{{end}}
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/move/bottom"
+        hx-target="#addons_section"
+        aria-label="Move to Bottom"
+        data-tooltip="Bottom"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="32">
+          <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5" />
+        </svg>
+      </button>
+    </div>
+    <div id="addon_operation_manage" role="group" class="flex-wrap">
+      <button
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/toggle"
+        hx-target="#addons_section"
+        {{if .Flags.Protected}}disabled{{end}}
+        class="{{if .Flags.Protected}}secondary{{end}}"
+        style="
+        {{if not (has_prefix .Manifest.ID "st:disabled:")}}
+          {{if not .Flags.Protected}}
+          --pico-background-color: #ad2201;
+          {{end}}
+        {{end}}"
+      >
+        {{if (has_prefix .Manifest.ID "st:disabled:")}}
+          Enable
+        {{else}}
+          Disable {{if .Flags.Protected}}[Protected]{{end}}
+        {{end}}
+      </button>
+      <button
+        class="secondary"
+        hx-ext="htmx-modal"
+        data-modal="#addon_modify_modal"
+        data-modal-on-open="onOpenAddonModifyModal"
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/modify"
+        hx-target="#addons_section"
+        hx-trigger="confirmed"
+        data-name="{{.Manifest.Name}}"
+        data-description="{{.Manifest.Description}}"
+        data-logo="{{.Manifest.Logo}}"
+        data-configurable="{{if eq .Manifest.BehaviorHints nil}}false{{else}}{{.Manifest.BehaviorHints.Configurable}}{{end}}"
+        data-protected="{{if eq .Flags nil}}false{{else}}{{.Flags.Protected}}{{end}}"
+        data-version="{{.Manifest.Version}}"
+        data-catalog-names="{{range .Manifest.Catalogs}}{{.Type}}{{"\n"}}{{.Id}}{{"\n"}}{{.Name}}{{"\n"}}|{{if catalog_has_board .}}has_board|{{end}}{{if catalog_can_toggle_board .}}can_toggle_board|{{end}}{{"\n\n"}}{{end}}"
+      >
+        Modify
+      </button>
+      <button
+        hx-ext="htmx-modal"
+        data-modal="#addon_reload_modal"
+        data-modal-on-open="onOpenAddonReloadModal"
+        hx-post="addons/{{.TransportUrl | url_path_escape}}/reload"
+        hx-target="#addons_section"
+        hx-trigger="confirmed"
+        data-name="{{.Manifest.Name}}"
+        data-version="{{.Manifest.Version}}"
+        data-disabled="{{if (has_prefix .Manifest.ID "st:disabled:")}}true{{end}}"
+        data-manifest-url="{{.TransportUrl}}"
+        data-configure-url="{{get_configure_url .}}"
+      >
+        Reload
+      </button>
+    </div>
+  </article>
+  {{end}}
+</div>
+
+<dialog id="addon_modify_modal">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" data-modal-close></button>
+      <h3>
+        <span id="addon_modify_name"></span>
+        <small><sup>v<span id="addon_modify_version"></span></sup></small>
+      </h3>
+    </header>
+    <form>
+      <label for="addon_modify_new_name">Name *</label>
+      <input id="addon_modify_new_name" name="addon_modify_new_name" value="" required>
+
+      <label for="addon_modify_new_description">Description *</label>
+      <textarea id="addon_modify_new_description" name="addon_modify_new_description" required></textarea>
+
+      <label for="addon_modify_new_logo">Logo</label>
+      <input type="url" id="addon_modify_new_logo" name="addon_modify_new_logo"></input>
+
+      {{if .HasAuthAdmin}}
+      <fieldset>
+        <legend>Modifiers:</legend>
+        <input type="checkbox" id="addon_modify_new_configurable" name="addon_modify_new_configurable">
+        <label for="addon_modify_new_configurable" style="border: 0;">
+          Configurable
+        </label>
+        <input type="checkbox" id="addon_modify_new_protected" name="addon_modify_new_protected">
+        <label for="addon_modify_new_protected" style="border: 0;">
+          Protected
+        </label>
+      </fieldset>
+      {{end}}
+
+      <fieldset id="addon_modify_new_catalogs">
+        <legend>Catalogs:</legend>
+
+        <div data-type="catalog_item_template" style="display: none;">
+          <label data-name="catalog_name">
+            <small><span data-type="catalog_item_type"></span> [<span data-type="catalog_item_id"></span>]</small>
+            <input type="hidden" style="margin-bottom: 0;" />
+          </label>
+          <label data-name="catalog_hidden" style="display: none; font-size: 0.75rem;">
+            <input type="hidden" style="font-size: 0.75rem;" />
+            Hide from Board <span style="border: 0;" data-tooltip="⚠️ Can break the addon!">⚠️</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <button type="submit">Modify</button>
+    </form>
+  </article>
+</dialog>
+
+<dialog id="addon_install_modal">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" data-modal-close></button>
+      <h3>
+        Install New Addon
+      </h3>
+    </header>
+    <form>
+      <label for="addon_install_manifest_url">Manifest URL *</label>
+      <input type="url" id="addon_install_manifest_url" name="addon_install_manifest_url" value="" required>
+
+      <button type="submit">Install</button>
+    </form>
+  </article>
+</dialog>
+
+<dialog id="addon_uninstall_modal">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" data-modal-close></button>
+      <h3>
+        Uninstall <span id="addon_uninstall_name"></span>
+        <small><sup>v<span id="addon_uninstall_version"></span></sup></small>
+      </h3>
+    </header>
+    <form>
+      <button
+        style="
+        --pico-background-color: #ad2201;
+        "
+        type="submit"
+      >
+        Uninstall
+      </button>
+    </form>
+  </article>
+</dialog>
+
+<dialog id="addon_reload_modal">
+  <article>
+    <header>
+      <button aria-label="Close" rel="prev" data-modal-close></button>
+      <h3>
+        <span id="addon_reload_name"></span>
+        <small><sup>v<span id="addon_reload_version"></span></sup></small>
+      </h3>
+    </header>
+    <form>
+      <label for="addon_reload_manifest_url">Manifest URL *</label>
+      <fieldset role="group">
+        <input type="url" id="addon_reload_manifest_url" name="manifest_url" value="" required>
+        <a id="add_reload_configure_url" type="button" href="" target="_blank">Configure</a>
+      </fieldset>
+
+      <button type="submit">Reload</button>
+    </form>
+  </article>
+</dialog>
+
+<div id="addons_backup">
+
+<article id="addons_backup_backup">
+  <header><h3>Backup Addons</h3></header>
+
+  <form hx-ext="htmx-download" hx-target="find textarea" hx-swap="innerHTML" hx-get="addons/backup">
+    <textarea readonly></textarea>
+    <button type="submit" class="grow">Backup</button>
+  </form>
+</article>
+
+<article id="addons_backup_restore">
+  <header>
+    <h3>Restore Addons</h3>
+    <small>
+      ⚠️ This is replace all the existing addons on your Stremio account! 
+    </small>
+  </header>
+
+  <form hx-post="addons/restore" hx-target="#addons_section">
+    <input type="file" accept=".json,application/json" onchange="onAddonBackupRestoreFileSelect(event)">
+    <textarea name="blob" required {{if ne .BackupRestore.Error.AddonsRestoreBlob ""}}aria-invalid="true"{{end}}>{{.BackupRestore.AddonsRestoreBlob}}</textarea>
+    <small>
+      {{if ne .BackupRestore.Error.AddonsRestoreBlob ""}}<span class="error">{{.BackupRestore.Error.AddonsRestoreBlob}}</span> | {{end}}
+      Backup Content
+    </small>
+
+    <button type="submit" class="grow">Restore</button>
+  </form>
+</article>
+
+<article id="addons_backup_reset">
+  <header>
+    <h3>Reset Addons</h3>
+    <small>
+      ⚠️ This will remove all unofficial addons
+    </small>
+  </header>
+
+  <form hx-post="addons/reset" hx-target="#addons_section">
+    <fieldset {{if .BackupRestore.HasError.AddonsReset}}aria-invalid="true"{{end}}>
+      <label>
+        <input type="checkbox" name="understood" {{if .BackupRestore.HasError.AddonsReset}}aria-invalid="true"{{end}}>
+        I Understand
+      </label>
+    </fieldset>
+    <small>{{.BackupRestore.Message.AddonsReset}}</small>
+
+    <button type="submit" class="grow">Reset</button>
+  </form>
+</article>
+
+</div>
+
+
+<script>
+
+function tryLoadAddons() {
+  const url = new URL(window.location.href);
+  if (!url.searchParams.get("try_load_addons")) {
+    return;
+  }
+  url.searchParams.delete("try_load_addons");
+  window.history.replaceState(null, "", url.href);
+
+  setTimeout(() => {
+    htmx.trigger("button#load_addons", "addons_load");
+  }, 200);
+}
+
+tryLoadAddons();
+
+function onAddonOperationChange(el) {
+  const operation = el.value;
+
+  document.querySelector("#addons_section").dataset.operation = operation;
+
+  const url = new URL(window.location.href)
+  url.searchParams.set("addon_operation", operation);
+  window.history.replaceState(null, "", url.href);
+}
+
+function onOpenAddonModifyModal(e, { modal, onClose, trigger }) {
+  const isAdmin = "{{.HasAuthAdmin}}" == "true";
+
+  modal.querySelector("#addon_modify_name").textContent = trigger.dataset.name;
+  modal.querySelector("#addon_modify_version").textContent = trigger.dataset.version;
+  modal.querySelector("#addon_modify_new_name").value = trigger.dataset.name;
+  modal.querySelector("#addon_modify_new_description").value = trigger.dataset.description;
+  modal.querySelector("#addon_modify_new_logo").value = trigger.dataset.logo;
+  modal.querySelector("#addon_modify_new_logo").value = trigger.dataset.logo;
+  const catalogs = trigger.dataset.catalogNames.trim().split("\n\n").filter(Boolean).map((line) => {
+    const [cType, cId, cName, cFlags] = line.split("\n");
+    return {
+      type: cType,
+      id: cId,
+      name: cName,
+      hasBoard: cFlags.includes("|has_board|"),
+      canToggleBoard: cFlags.includes("|can_toggle_board|"),
+    };
+  });
+
+  const catalogsFieldset = modal.querySelector("#addon_modify_new_catalogs");
+  catalogsFieldset.querySelectorAll(`[data-type="catalog_item"]`).forEach((node) => {
+    node.parentNode.removeChild(node);
+  });
+
+  catalogsFieldset.style.display = catalogs.length ? "block" : "none";
+
+  if (catalogs.length) {
+    const itemTemplate = modal.querySelector("[data-type='catalog_item_template']");
+    catalogs.forEach((catalog, i) => {
+      const item = itemTemplate.cloneNode(true);
+      item.style.display = "block";
+      item.dataset.type = "catalog_item";
+
+      const nameLabel = item.querySelector(`label[data-name="catalog_name"]`);
+      nameLabel.querySelector(`[data-type="catalog_item_type"]`).innerText = catalog.type;
+      nameLabel.querySelector(`[data-type="catalog_item_id"]`).innerText = catalog.id;
+      const nameInput = nameLabel.querySelector("input");
+      nameInput.type = "text";
+      nameInput.name = `${nameLabel.dataset.name}[${i}]`;
+      nameInput.value = catalog.name;
+
+      if (catalog.canToggleBoard) {
+        const hiddenLabel = item.querySelector(`label[data-name="catalog_hidden"]`);
+        hiddenLabel.style.display = "block";
+        const hiddenInput = hiddenLabel.querySelector("input");
+        hiddenInput.type = "checkbox";
+        hiddenInput.name = `${hiddenLabel.dataset.name}[${i}]`;
+        hiddenInput.checked = !catalog.hasBoard;
+      }
+
+      catalogsFieldset.appendChild(item);
+    });
+  }
+
+  if (isAdmin) {
+    modal.querySelector("#addon_modify_new_configurable").checked = trigger.dataset.configurable == "true";
+    modal.querySelector("#addon_modify_new_protected").checked = trigger.dataset.protected == "true";
+  }
+  
+  modal.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = {
+      name: modal.querySelector("#addon_modify_new_name").value,
+      description: modal.querySelector("#addon_modify_new_description").value,
+      logo: modal.querySelector("#addon_modify_new_logo").value,
+    }
+    modal.querySelectorAll(`[data-type="catalog_item"]`).forEach((node) => {
+      const nameInput = node.querySelector(`[data-name="catalog_name"] input`);
+      data[nameInput.name] = nameInput.value;
+      const hiddenInput = node.querySelector(`[data-name="catalog_hidden"] input[type="checkbox"]`);
+      if (hiddenInput) {
+        data[hiddenInput.name] = hiddenInput.checked;
+      }
+    });
+    if (isAdmin) {
+      data.configurable = modal.querySelector("#addon_modify_new_configurable").checked;
+      data.protected = modal.querySelector("#addon_modify_new_protected").checked;
+    }
+    trigger.setAttribute("hx-vals", JSON.stringify(data));
+    onClose();
+    htmx.trigger(trigger, "confirmed");
+  }, { once: true });
+}
+
+function onOpenAddonInstallModal(e, { modal, onClose, trigger }) {
+  modal.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    trigger.setAttribute("hx-vals", JSON.stringify({
+      manifest_url: modal.querySelector("#addon_install_manifest_url").value
+    }));
+    onClose();
+    htmx.trigger(trigger, "confirmed");
+  }, { once: true });
+}
+
+function onOpenAddonUninstallModal(e, { modal, onClose, trigger }) {
+  modal.querySelector("#addon_uninstall_name").textContent = trigger.dataset.name;
+  modal.querySelector("#addon_uninstall_version").textContent = trigger.dataset.version;
+
+  modal.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    onClose();
+    htmx.trigger(trigger, "confirmed");
+  }, { once: true });
+}
+
+function onOpenAddonReloadModal(e, { modal, onClose, trigger }) {
+  modal.querySelector("#addon_reload_name").textContent = trigger.dataset.name;
+  modal.querySelector("#addon_reload_version").textContent = trigger.dataset.version;
+  modal.querySelector("#addon_reload_manifest_url").value = trigger.dataset.manifestUrl;
+  
+  const configureUrl = trigger.dataset.configureUrl;
+  if (trigger.dataset.disabled !== "true" && configureUrl) {
+    modal.querySelector("#add_reload_configure_url").style.display = "";
+    modal.querySelector("#add_reload_configure_url").href = trigger.dataset.configureUrl;
+  } else {
+    modal.querySelector("#add_reload_configure_url").style.display = "none";
+  }
+
+  modal.querySelector("form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    trigger.setAttribute("hx-vals", `{"manifest_url":"${modal.querySelector("#addon_reload_manifest_url").value}"}`);
+    onClose();
+    htmx.trigger(trigger, "confirmed");
+  }, { once: true });
+}
+
+setTimeout(() => {
+    const addon_error = document.querySelector("#addon_error");
+    if (addon_error) {
+      window.scrollTo(0, addon_error.offsetTop);
+    }
+}, 200)
+</script>
+
+<script>
+function onAddonBackupRestoreFileSelect(e) {
+  const file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    document.querySelector("#addons_backup_restore form textarea").value = e.target.result;
+  }
+  reader.readAsText(file);
+}
+</script>
+
+</section>

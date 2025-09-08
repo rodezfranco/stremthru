@@ -1,0 +1,131 @@
+{{define "head"}}
+<style>
+  body {
+    justify-content: center;
+  }
+
+  section > header {
+    margin-bottom: 24px;
+  }
+
+  #account_section p {
+    margin-bottom: 0;
+  }
+
+  [role="group"] button {
+    --pico-form-element-spacing-horizontal: 1rem;
+  }
+</style>
+{{end}}
+
+{{define "header"}}
+<h1>
+  {{.Title}}
+</h1>
+<div>
+  <p>{{.Description}}</p>
+</div>
+{{end}}
+
+{{define "main"}}
+  <header>
+    <center>
+      <h6>
+        ‼️⚠️‼️
+        <br />
+        This Can Break Your Stremio Account
+        <br />
+        <small>
+          ⚠️ Use It At Your Own Risk ⚠️
+        </small>
+      </h6>
+    </center>
+  </header>
+
+  {{template "sidekick_account_section.html" .}}
+
+  {{if .IsAuthed}}
+  <details open>
+    <summary role="button" class="secondary">
+      Addons
+    </summary>
+    {{template "sidekick_addons_section.html" .}}
+  </details>
+
+  <details>
+    <summary role="button" class="secondary">
+      Library
+    </summary>
+    {{template "sidekick_library_section.html" .}}
+  </details>
+  {{end}}
+{{end}}
+
+{{define "foot"}}
+<script>
+  htmx.on("htmx:beforeRequest", function(evt) {
+    let button = null;
+    if (evt.detail.elt.tagName === "BUTTON") {
+      button = evt.detail.elt;
+    } else if (evt.detail.elt.tagName === "FORM") {
+      button = evt.detail.elt.querySelector("button[type='submit']");
+    }
+    if (button) {
+      button.ariaBusy = true;
+    }
+  });
+  htmx.on("htmx:afterRequest", function(evt) {
+    let button = null;
+    if (evt.detail.elt.tagName === "BUTTON") {
+      button = evt.detail.elt;
+    } else if (evt.detail.elt.tagName === "FORM") {
+      button = evt.detail.elt.querySelector("button[type='submit']");
+    }
+    if (button) {
+      button.ariaBusy = false;
+    }
+  });
+
+  htmx.defineExtension("htmx-download", {
+    onEvent: (name, evt) => {
+      if (name == "htmx:beforeSwap") {
+        const status = evt.detail.xhr.status;
+        if (status == 200) {
+          const data = evt.detail.xhr.response;
+
+          const heqdersBlob = evt.detail.xhr.getAllResponseHeaders();
+          const headerLines = heqdersBlob.trim().split(/[\r\n]+/);
+          const headers = {}
+          for (const line of headerLines) {
+            const [key, ...parts] = line.split(": ");
+            headers[key] = parts.join(": ");
+          }
+
+          const filename = headers["content-disposition"]?.split("=")[1].replace(/^"/, "").replace(/"$/, "");
+          const mimetype = headers["content-type"];
+          if (!filename || !mimetype) {
+            return;
+          }
+
+          const blob = new Blob([data], { type: mimetype });
+
+          const a = document.createElement("a");
+          a.download = filename;
+          a.href = URL.createObjectURL(blob);
+          a.target = "_blank";
+          a.style.display = "none";
+
+          document.body.appendChild(a);
+          a.click();
+          setTimeout(() => {
+            a.parentNode.removeChild(a);
+          }, 100);
+        }
+      }
+      return true;
+    },
+  })
+</script>
+{{end}}
+
+{{template "layout.html" .}}
