@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/MunifTanjim/stremthru/internal/anidb"
+	"github.com/rodezfranco/stremthru/internal/anidb"
 	"github.com/stretchr/testify/assert"
 )
 

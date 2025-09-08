@@ -3,8 +3,8 @@ package stremio_userdata
 import (
 	"encoding/json"
 
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
 )
 
 const TableName = "stremio_userdata"

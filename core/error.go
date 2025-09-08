@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/server"
 )
 
 type ErrorType string

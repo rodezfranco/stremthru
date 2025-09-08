@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type MetaPosterShape string

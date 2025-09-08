@@ -11,11 +11,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/logger"
-	"github.com/MunifTanjim/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/request"
 	"github.com/google/uuid"
 	"golang.org/x/oauth2"
 )

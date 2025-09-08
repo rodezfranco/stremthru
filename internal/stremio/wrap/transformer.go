@@ -4,10 +4,10 @@ import (
 	"errors"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/kv"
-	stremio_transformer "github.com/MunifTanjim/stremthru/internal/stremio/transformer"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/kv"
+	stremio_transformer "github.com/rodezfranco/stremthru/internal/stremio/transformer"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 type StreamTransformer struct {

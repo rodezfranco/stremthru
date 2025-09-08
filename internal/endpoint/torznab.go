@@ -3,8 +3,8 @@ package endpoint
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/internal/torznab"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/torznab"
 )
 
 func handleTorznab(w http.ResponseWriter, r *http.Request) {

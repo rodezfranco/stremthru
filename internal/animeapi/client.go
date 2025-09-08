@@ -7,8 +7,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/request"
 )
 
 type textResponse string

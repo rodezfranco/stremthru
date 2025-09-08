@@ -7,12 +7,12 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/anilist"
-	"github.com/MunifTanjim/stremthru/internal/anime"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/imdb_title"
-	"github.com/MunifTanjim/stremthru/internal/kitsu"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/anilist"
+	"github.com/rodezfranco/stremthru/internal/anime"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/imdb_title"
+	"github.com/rodezfranco/stremthru/internal/kitsu"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type Mapping struct {

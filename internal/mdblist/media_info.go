@@ -3,7 +3,7 @@ package mdblist
 import (
 	"encoding/json"
 
-	"github.com/MunifTanjim/stremthru/core"
+	"github.com/rodezfranco/stremthru/core"
 )
 
 type MediaInfo struct {

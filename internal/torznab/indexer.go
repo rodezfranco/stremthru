@@ -8,14 +8,14 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/buddy"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/buddy"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/util"
 
-	"github.com/MunifTanjim/stremthru/internal/imdb_title"
-	"github.com/MunifTanjim/stremthru/internal/imdb_torrent"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/internal/imdb_title"
+	"github.com/rodezfranco/stremthru/internal/imdb_torrent"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
 )
 
 type Info struct {

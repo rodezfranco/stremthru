@@ -6,7 +6,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/MunifTanjim/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/logger"
 )
 
 var lockLog = logger.Scoped("db/advisory_lock")

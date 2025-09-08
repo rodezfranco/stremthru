@@ -4,8 +4,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var client = func() *stremio_addon.Client {

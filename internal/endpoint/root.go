@@ -7,8 +7,8 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/internal/config"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
 )
 
 //go:embed root.html

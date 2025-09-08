@@ -3,7 +3,7 @@ package tvdb
 import (
 	"strconv"
 
-	"github.com/MunifTanjim/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/request"
 )
 
 type Alias struct {

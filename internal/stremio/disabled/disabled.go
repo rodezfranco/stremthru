@@ -3,9 +3,9 @@ package stremio_disabled
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
 )
 
 func handleManifest(w http.ResponseWriter, r *http.Request) {

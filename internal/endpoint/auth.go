@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/oauth"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/internal/tvdb"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/oauth"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/tvdb"
 )
 
 //go:embed auth_callback.html

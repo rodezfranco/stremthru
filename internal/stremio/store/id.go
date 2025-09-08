@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/store"
-	"github.com/MunifTanjim/stremthru/store/premiumize"
+	"github.com/rodezfranco/stremthru/store"
+	"github.com/rodezfranco/stremthru/store/premiumize"
 )
 
 func isStoreId(id string) bool {

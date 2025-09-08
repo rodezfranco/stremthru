@@ -3,8 +3,8 @@ package easydebrid
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func UpstreamErrorWithCause(cause error) *core.UpstreamError {

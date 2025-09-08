@@ -3,14 +3,14 @@ package stremio_root
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_list "github.com/MunifTanjim/stremthru/internal/stremio/list"
-	stremio_sidekick "github.com/MunifTanjim/stremthru/internal/stremio/sidekick"
-	stremio_store "github.com/MunifTanjim/stremthru/internal/stremio/store"
-	stremio_torz "github.com/MunifTanjim/stremthru/internal/stremio/torz"
-	stremio_wrap "github.com/MunifTanjim/stremthru/internal/stremio/wrap"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_list "github.com/rodezfranco/stremthru/internal/stremio/list"
+	stremio_sidekick "github.com/rodezfranco/stremthru/internal/stremio/sidekick"
+	stremio_store "github.com/rodezfranco/stremthru/internal/stremio/store"
+	stremio_torz "github.com/rodezfranco/stremthru/internal/stremio/torz"
+	stremio_wrap "github.com/rodezfranco/stremthru/internal/stremio/wrap"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 func getAddonCatalog(r *http.Request) *stremio.AddonCatalogHandlerResponse {

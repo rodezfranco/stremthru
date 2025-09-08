@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type LookupLinkDetailsDataItemFile struct {

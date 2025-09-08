@@ -1,8 +1,8 @@
 package worker
 
 import (
-	"github.com/MunifTanjim/stremthru/internal/animeapi"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/animeapi"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 var syncAnimeAPIJobTracker *JobTracker[struct{}]

@@ -3,9 +3,9 @@ package stremio_shared
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/logger"
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/server"
 )
 
 var log = logger.Scoped("stremio/shared")

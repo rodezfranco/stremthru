@@ -4,13 +4,13 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/store/realdebrid"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/store/realdebrid"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var rdClient = realdebrid.NewAPIClient(&realdebrid.APIClientConfig{

@@ -3,9 +3,9 @@ package stremio_wrap
 import (
 	"sync"
 
-	"github.com/MunifTanjim/stremthru/internal/context"
-	stremio_addon "github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/context"
+	stremio_addon "github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 func (ud UserData) fetchSubtitles(ctx *context.StoreContext, rType, id, extra string) (*stremio.SubtitlesHandlerResponse, error) {

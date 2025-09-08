@@ -7,11 +7,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/logger"
-	"github.com/MunifTanjim/stremthru/internal/torrent_stream"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/torrent_stream"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 const TableName = "magnet_cache"

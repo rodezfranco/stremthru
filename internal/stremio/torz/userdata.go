@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
 )
 
 type UserDataStoreCode string

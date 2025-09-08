@@ -3,11 +3,11 @@ package stremio_shared
 import (
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 var P2PEnabled = config.Feature.IsEnabled(config.FeatureStremioP2P)

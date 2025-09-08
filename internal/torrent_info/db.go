@@ -12,12 +12,12 @@ import (
 	"time"
 
 	"github.com/MunifTanjim/go-ptt"
-	"github.com/MunifTanjim/stremthru/internal/anidb"
-	"github.com/MunifTanjim/stremthru/internal/anime"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/imdb_torrent"
-	ts "github.com/MunifTanjim/stremthru/internal/torrent_stream"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/anidb"
+	"github.com/rodezfranco/stremthru/internal/anime"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/imdb_torrent"
+	ts "github.com/rodezfranco/stremthru/internal/torrent_stream"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type CommaSeperatedString []string

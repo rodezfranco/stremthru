@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/elastic/go-freelru"
 	rc "github.com/go-redis/cache/v9"
 	r "github.com/redis/go-redis/v9"

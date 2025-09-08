@@ -4,9 +4,9 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/MunifTanjim/stremthru/internal/meta"
-	"github.com/MunifTanjim/stremthru/internal/request"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/meta"
+	"github.com/rodezfranco/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type MovieStatusId int

@@ -30,7 +30,7 @@ function onStoreNameChangeUpdateStoreTokenDescription(nameField) {
   if (nameDescElem) {
     const descByStore = {
       "*": "…",
-      "": "Use <a target='_blank' href='https://github.com/MunifTanjim/stremthru?tab=readme-ov-file#stremthru_store_auth'><code>STREMTHRU_STORE_AUTH</code></a> config",
+      "": "Use <a target='_blank' href='https://github.com/rodezfranco/stremthru?tab=readme-ov-file#stremthru_store_auth'><code>STREMTHRU_STORE_AUTH</code></a> config",
       ad: "<a type='button' class='outline mb-0' style='font-size: 0.75rem; padding: 0.02em 0.5em;' target='_blank' href='https://alldebrid.com'>Sign Up</a>",
       dr: "<a type='button' class='outline mb-0' style='font-size: 0.75rem; padding: 0.02em 0.5em;' target='_blank' href='https://debrider.app'>Sign Up</a>",
       dl: "<a type='button' class='outline mb-0' style='font-size: 0.75rem; padding: 0.02em 0.5em;' target='_blank' href='https://debrid-link.com/id/4v8Uc'>Sign Up</a>",
@@ -49,7 +49,7 @@ function onStoreNameChangeUpdateStoreTokenDescription(nameField) {
   if (tokenDescElem) {
 		const descByStore = {
 			"*": "API Key",
-			"": "StremThru Basic Auth Token (base64 encoded) from <a href='https://github.com/MunifTanjim/stremthru?tab=readme-ov-file#configuration' target='_blank'><code>STREMTHRU_PROXY_AUTH</code></a>",
+			"": "StremThru Basic Auth Token (base64 encoded) from <a href='https://github.com/rodezfranco/stremthru?tab=readme-ov-file#configuration' target='_blank'><code>STREMTHRU_PROXY_AUTH</code></a>",
 			ad: "AllDebrid <a href='https://alldebrid.com/apikeys' target='_blank'>API Key</a>",
 			dr: "Debrider <a href='https://debrider.app/dashboard/account#:~:text=Use%20EasyDebrid-,API%20Key,-Generate%20a%20secret' target='_blank'>API Key</a>",
 			dl: "DebridLink <a href='https://debrid-link.com/webapp/apikey' target='_blank'>API Key</a>",

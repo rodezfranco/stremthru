@@ -11,10 +11,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/anime"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/util"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/anime"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 type File struct {

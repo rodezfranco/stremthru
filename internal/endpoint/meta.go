@@ -3,8 +3,8 @@ package endpoint
 import (
 	"net/http"
 
-	meta_id_map "github.com/MunifTanjim/stremthru/internal/meta/id_map"
-	meta_letterboxd "github.com/MunifTanjim/stremthru/internal/meta/letterboxd"
+	meta_id_map "github.com/rodezfranco/stremthru/internal/meta/id_map"
+	meta_letterboxd "github.com/rodezfranco/stremthru/internal/meta/letterboxd"
 )
 
 func AddMetaEndpoints(mux *http.ServeMux) {

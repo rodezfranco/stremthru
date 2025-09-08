@@ -3,8 +3,8 @@ package stremio_shared
 import (
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var claimedManifestIdPrefixForStremioAddonsDotNet = util.MustDecodeBase64("eHl6LjEzMzc3MDAxLnN0cmVtdGhydQ==")

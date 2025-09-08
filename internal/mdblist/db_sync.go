@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 )
 
 var mdblistClient = NewAPIClient(&APIClientConfig{})

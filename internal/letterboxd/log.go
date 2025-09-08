@@ -1,7 +1,7 @@
 package letterboxd
 
 import (
-	"github.com/MunifTanjim/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/logger"
 )
 
 var log = logger.Scoped("letterboxd")

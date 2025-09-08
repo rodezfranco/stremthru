@@ -10,14 +10,14 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/internal/stremio/api"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/internal/stremio/api"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var IsPublicInstance = config.IsPublicInstance

@@ -9,11 +9,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/buddy"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/torrent_stream"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/buddy"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/torrent_stream"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 type StoreClientConfig struct {

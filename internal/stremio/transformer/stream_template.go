@@ -6,8 +6,8 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 type StreamTemplateBlob struct {

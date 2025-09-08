@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/kv"
+	"github.com/rodezfranco/stremthru/internal/kv"
 )
 
 type IdQueue struct {

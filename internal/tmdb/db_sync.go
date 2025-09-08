@@ -5,8 +5,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/db"
 )
 
 var listCache = cache.NewCache[TMDBList](&cache.CacheConfig{

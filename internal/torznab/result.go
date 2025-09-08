@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
+	"github.com/rodezfranco/stremthru/core"
 )
 
 const rfc822 = "Mon, 02 Jan 2006 15:04:05 -0700"

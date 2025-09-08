@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/MunifTanjim/go-ptt"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/stremio"
 	"github.com/stretchr/testify/assert"
 )
 

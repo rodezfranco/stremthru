@@ -3,9 +3,9 @@ package stremio_store
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func handleConfigure(w http.ResponseWriter, r *http.Request) {

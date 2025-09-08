@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
+	"github.com/rodezfranco/stremthru/core"
 )
 
 type ListDownloadsDataItem struct {

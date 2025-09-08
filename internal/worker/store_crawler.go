@@ -3,10 +3,10 @@ package worker
 import (
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/internal/worker/worker_queue"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/internal/worker/worker_queue"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func InitCrawlStoreWorker(conf *WorkerConfig) *Worker {

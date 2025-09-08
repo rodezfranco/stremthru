@@ -3,7 +3,7 @@ package config
 import (
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type stremioConfigList struct {

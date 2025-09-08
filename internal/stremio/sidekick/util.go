@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"slices"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var IsMethod = shared.IsMethod

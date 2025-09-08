@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/MunifTanjim/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/pressly/goose/v3"
 )
 

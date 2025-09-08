@@ -3,7 +3,7 @@ package torrent_info
 import (
 	"testing"
 
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/stremio"
 	"github.com/stretchr/testify/assert"
 )
 

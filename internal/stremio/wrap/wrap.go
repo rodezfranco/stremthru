@@ -4,11 +4,11 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_addon "github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_addon "github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var IsPublicInstance = config.IsPublicInstance

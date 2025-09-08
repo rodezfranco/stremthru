@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/meta"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/meta"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
 )
 
 var IsMethod = shared.IsMethod

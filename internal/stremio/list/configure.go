@@ -4,11 +4,11 @@ import (
 	"net/http"
 	"slices"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/mdblist"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/mdblist"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 func handleConfigure(w http.ResponseWriter, r *http.Request) {

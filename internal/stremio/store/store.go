@@ -3,8 +3,8 @@ package stremio_store
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
 )
 
 func handleRoot(w http.ResponseWriter, r *http.Request) {

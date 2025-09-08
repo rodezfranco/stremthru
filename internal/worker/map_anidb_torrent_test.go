@@ -5,9 +5,9 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/MunifTanjim/stremthru/internal/anidb"
-	"github.com/MunifTanjim/stremthru/internal/animelists"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/internal/anidb"
+	"github.com/rodezfranco/stremthru/internal/animelists"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -4,8 +4,8 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/MunifTanjim/stremthru/internal/meta"
-	"github.com/MunifTanjim/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/meta"
+	"github.com/rodezfranco/stremthru/internal/request"
 )
 
 type SeriesStatusId int

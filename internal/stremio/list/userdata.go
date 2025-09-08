@@ -7,16 +7,16 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/anilist"
-	"github.com/MunifTanjim/stremthru/internal/letterboxd"
-	"github.com/MunifTanjim/stremthru/internal/mdblist"
-	"github.com/MunifTanjim/stremthru/internal/oauth"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
-	"github.com/MunifTanjim/stremthru/internal/tmdb"
-	"github.com/MunifTanjim/stremthru/internal/trakt"
-	"github.com/MunifTanjim/stremthru/internal/tvdb"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/anilist"
+	"github.com/rodezfranco/stremthru/internal/letterboxd"
+	"github.com/rodezfranco/stremthru/internal/mdblist"
+	"github.com/rodezfranco/stremthru/internal/oauth"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/internal/tmdb"
+	"github.com/rodezfranco/stremthru/internal/trakt"
+	"github.com/rodezfranco/stremthru/internal/tvdb"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type UserData struct {

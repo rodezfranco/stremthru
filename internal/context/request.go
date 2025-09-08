@@ -5,7 +5,7 @@ import (
 	"log/slog"
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 type storeContextKey struct{}

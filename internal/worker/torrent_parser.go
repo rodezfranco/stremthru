@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/MunifTanjim/go-ptt"
-	ti "github.com/MunifTanjim/stremthru/internal/torrent_info"
+	ti "github.com/rodezfranco/stremthru/internal/torrent_info"
 )
 
 func InitParseTorrentWorker(conf *WorkerConfig) *Worker {

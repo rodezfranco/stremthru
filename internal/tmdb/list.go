@@ -10,7 +10,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/util"
 	"github.com/golang-jwt/jwt/v5"
 )
 

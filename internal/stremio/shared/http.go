@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/shared"
 )
 
 func SendResponse(w http.ResponseWriter, r *http.Request, statusCode int, data any) {

@@ -1,8 +1,8 @@
 package worker
 
 import (
-	"github.com/MunifTanjim/stremthru/internal/anidb"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/anidb"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 var syncAniDBTitlesJobTracker *JobTracker[struct{}]

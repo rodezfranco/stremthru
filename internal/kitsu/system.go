@@ -6,9 +6,9 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/oauth"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/oauth"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 func GetSystemKitsu() *APIClient {

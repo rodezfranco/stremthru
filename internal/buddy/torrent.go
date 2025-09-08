@@ -4,12 +4,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/logger"
-	"github.com/MunifTanjim/stremthru/internal/peer"
-	ti "github.com/MunifTanjim/stremthru/internal/torrent_info"
-	tss "github.com/MunifTanjim/stremthru/internal/torrent_stream/torrent_stream_syncinfo"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/peer"
+	ti "github.com/rodezfranco/stremthru/internal/torrent_info"
+	tss "github.com/rodezfranco/stremthru/internal/torrent_stream/torrent_stream_syncinfo"
 )
 
 var PullPeer, pullLocalOnly = func() (*peer.APIClient, bool) {

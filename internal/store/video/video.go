@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
 )
 
 //go:embed *.mp4

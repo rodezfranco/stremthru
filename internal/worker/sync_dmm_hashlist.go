@@ -13,13 +13,13 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/dmm_hashlist"
-	"github.com/MunifTanjim/stremthru/internal/lzstring"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/dmm_hashlist"
+	"github.com/rodezfranco/stremthru/internal/lzstring"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type DMMHashlistItem struct {

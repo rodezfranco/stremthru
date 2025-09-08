@@ -5,7 +5,7 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/MunifTanjim/stremthru/core"
+	"github.com/rodezfranco/stremthru/core"
 )
 
 type Item struct {

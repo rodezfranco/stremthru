@@ -5,11 +5,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	store_video "github.com/MunifTanjim/stremthru/internal/store/video"
-	stremio_store_usenet "github.com/MunifTanjim/stremthru/internal/stremio/store/usenet"
-	stremio_store_webdl "github.com/MunifTanjim/stremthru/internal/stremio/store/webdl"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	store_video "github.com/rodezfranco/stremthru/internal/store/video"
+	stremio_store_usenet "github.com/rodezfranco/stremthru/internal/stremio/store/usenet"
+	stremio_store_webdl "github.com/rodezfranco/stremthru/internal/stremio/store/webdl"
 )
 
 func handleStrem(w http.ResponseWriter, r *http.Request) {

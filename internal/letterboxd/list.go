@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/meta"
-	"github.com/MunifTanjim/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/meta"
+	"github.com/rodezfranco/stremthru/internal/request"
 )
 
 type FetchListIDParams struct {

@@ -6,11 +6,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/anime"
-	"github.com/MunifTanjim/stremthru/internal/anizip"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/worker/worker_queue"
+	"github.com/rodezfranco/stremthru/internal/anime"
+	"github.com/rodezfranco/stremthru/internal/anizip"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/worker/worker_queue"
 )
 
 var listCache = cache.NewCache[AniListList](&cache.CacheConfig{

@@ -7,9 +7,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/server"
 )
 
 type HealthData struct {

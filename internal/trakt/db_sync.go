@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/cache"
 )
 
 var listCache = cache.NewCache[TraktList](&cache.CacheConfig{

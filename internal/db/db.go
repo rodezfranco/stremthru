@@ -6,7 +6,7 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/mattn/go-sqlite3"
 )

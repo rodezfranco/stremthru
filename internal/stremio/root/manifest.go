@@ -3,10 +3,10 @@ package stremio_root
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 func getManifest(r *http.Request) *stremio.Manifest {

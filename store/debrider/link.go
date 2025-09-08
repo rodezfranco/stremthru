@@ -3,7 +3,7 @@ package debrider
 import (
 	"path/filepath"
 
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type CheckLinkAvailabilityDataItemFile struct {

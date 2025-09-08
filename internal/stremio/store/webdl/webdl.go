@@ -6,13 +6,13 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/request"
-	"github.com/MunifTanjim/stremthru/store"
-	"github.com/MunifTanjim/stremthru/store/alldebrid"
-	"github.com/MunifTanjim/stremthru/store/premiumize"
-	"github.com/MunifTanjim/stremthru/store/torbox"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/store"
+	"github.com/rodezfranco/stremthru/store/alldebrid"
+	"github.com/rodezfranco/stremthru/store/premiumize"
+	"github.com/rodezfranco/stremthru/store/torbox"
 )
 
 var adClient = alldebrid.NewAPIClient(&alldebrid.APIClientConfig{

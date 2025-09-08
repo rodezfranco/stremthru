@@ -1,8 +1,8 @@
 package alldebrid
 
 import (
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 type ErrorCode = core.ErrorCode

@@ -1,6 +1,6 @@
 package tvdb
 
-import "github.com/MunifTanjim/stremthru/internal/request"
+import "github.com/rodezfranco/stremthru/internal/request"
 
 type SearchByRemoteIdData struct {
 	Movie  *Movie

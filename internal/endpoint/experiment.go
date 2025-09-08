@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	ti "github.com/MunifTanjim/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	ti "github.com/rodezfranco/stremthru/internal/torrent_info"
 )
 
 func handleExperimentZileanTorrents(w http.ResponseWriter, r *http.Request) {

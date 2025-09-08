@@ -6,8 +6,8 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/logger"
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/logger"
+	"github.com/rodezfranco/stremthru/internal/server"
 	"github.com/rs/xid"
 )
 

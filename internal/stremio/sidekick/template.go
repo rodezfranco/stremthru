@@ -7,10 +7,10 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	stremio_template "github.com/MunifTanjim/stremthru/internal/stremio/template"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/config"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	stremio_template "github.com/rodezfranco/stremthru/internal/stremio/template"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 type Base = stremio_template.BaseData

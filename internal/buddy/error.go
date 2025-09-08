@@ -1,7 +1,7 @@
 package buddy
 
 import (
-	"github.com/MunifTanjim/stremthru/core"
+	"github.com/rodezfranco/stremthru/core"
 )
 
 type ErrorCode = core.ErrorCode

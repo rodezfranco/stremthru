@@ -6,12 +6,12 @@ import (
 	"strings"
 
 	"github.com/MunifTanjim/go-ptt"
-	"github.com/MunifTanjim/stremthru/internal/anidb"
-	"github.com/MunifTanjim/stremthru/internal/anime"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/internal/torrent_stream"
-	"github.com/MunifTanjim/stremthru/internal/util"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/anidb"
+	"github.com/rodezfranco/stremthru/internal/anime"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/internal/torrent_stream"
+	"github.com/rodezfranco/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func MatchFileByIdx(files []store.MagnetFile, idx int, storeCode store.StoreCode) *store.MagnetFile {

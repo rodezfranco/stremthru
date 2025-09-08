@@ -1,6 +1,6 @@
 package mdblist
 
-import "github.com/MunifTanjim/stremthru/core"
+import "github.com/rodezfranco/stremthru/core"
 
 func UpstreamErrorWithCause(cause error) *core.UpstreamError {
 	err := core.NewUpstreamError("")

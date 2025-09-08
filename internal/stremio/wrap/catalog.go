@@ -6,9 +6,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/context"
-	stremio_addon "github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/context"
+	stremio_addon "github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 func parseCatalogId(id string, ud *UserData) (idx int, catalogId string, err error) {

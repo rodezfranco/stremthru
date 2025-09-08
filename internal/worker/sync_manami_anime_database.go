@@ -3,8 +3,8 @@ package worker
 import (
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/manami"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/manami"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 var syncManamiAnimeDatabaseJobTracker *JobTracker[struct{}]

@@ -6,10 +6,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	stremio_transformer "github.com/MunifTanjim/stremthru/internal/stremio/transformer"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	stremio_transformer "github.com/rodezfranco/stremthru/internal/stremio/transformer"
 )
 
 func handleConfigure(w http.ResponseWriter, r *http.Request) {

@@ -5,10 +5,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/imdb_title"
-	"github.com/MunifTanjim/stremthru/internal/letterboxd"
-	meta_type "github.com/MunifTanjim/stremthru/internal/meta/type"
-	"github.com/MunifTanjim/stremthru/internal/shared"
+	"github.com/rodezfranco/stremthru/internal/imdb_title"
+	"github.com/rodezfranco/stremthru/internal/letterboxd"
+	meta_type "github.com/rodezfranco/stremthru/internal/meta/type"
+	"github.com/rodezfranco/stremthru/internal/shared"
 )
 
 func handleGetLetterboxdListById(w http.ResponseWriter, r *http.Request) {

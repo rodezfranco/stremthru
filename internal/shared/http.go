@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/server"
 )
 
 func IsMethod(r *http.Request, method string) bool {

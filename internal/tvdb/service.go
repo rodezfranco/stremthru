@@ -3,9 +3,9 @@ package tvdb
 import (
 	"strconv"
 
-	"github.com/MunifTanjim/stremthru/internal/imdb_title"
-	"github.com/MunifTanjim/stremthru/internal/meta"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/imdb_title"
+	"github.com/rodezfranco/stremthru/internal/meta"
+	"github.com/rodezfranco/stremthru/internal/util"
 	"github.com/alitto/pond/v2"
 )
 

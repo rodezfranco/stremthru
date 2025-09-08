@@ -9,7 +9,7 @@ import (
 	"github.com/lmittmann/tint"
 	"github.com/mattn/go-isatty"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 )
 
 var _ = func() *slog.Logger {

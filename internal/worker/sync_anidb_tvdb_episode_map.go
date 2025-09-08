@@ -1,8 +1,8 @@
 package worker
 
 import (
-	"github.com/MunifTanjim/stremthru/internal/animelists"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/internal/animelists"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 var syncAniDBTVDBEpisodeMapJobTracker *JobTracker[struct{}]

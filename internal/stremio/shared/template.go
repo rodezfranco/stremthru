@@ -3,10 +3,10 @@ package stremio_shared
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_template "github.com/MunifTanjim/stremthru/internal/stremio/template"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_template "github.com/rodezfranco/stremthru/internal/stremio/template"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
 )
 
 func GetStremThruAddons() []stremio_template.BaseDataStremThruAddon {

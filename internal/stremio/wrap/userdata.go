@@ -10,16 +10,16 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_addon "github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	stremio_transformer "github.com/MunifTanjim/stremthru/internal/stremio/transformer"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
-	"github.com/MunifTanjim/stremthru/store"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_addon "github.com/rodezfranco/stremthru/internal/stremio/addon"
+	stremio_transformer "github.com/rodezfranco/stremthru/internal/stremio/transformer"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/store"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var upstreamResolverCache = cache.NewCache[upstreamsResolver](&cache.CacheConfig{

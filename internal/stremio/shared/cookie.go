@@ -5,8 +5,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/server"
 )
 
 type AdminCookieValue struct {

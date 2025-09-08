@@ -5,11 +5,11 @@ import (
 	"html/template"
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	stremio_template "github.com/MunifTanjim/stremthru/internal/stremio/template"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	stremio_template "github.com/rodezfranco/stremthru/internal/stremio/template"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
 )
 
 type Base = stremio_template.BaseData

@@ -6,7 +6,7 @@ import (
 	"slices"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/hasura/go-graphql-client"
 )
 

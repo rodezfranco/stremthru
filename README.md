@@ -1,9 +1,9 @@
-[![GitHub Workflow Status: CI](https://img.shields.io/github/actions/workflow/status/MunifTanjim/stremthru/ci.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/MunifTanjim/stremthru/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/MunifTanjim/stremthru?style=for-the-badge)](https://github.com/MunifTanjim/stremthru/blob/master/LICENSE)
+[![GitHub Workflow Status: CI](https://img.shields.io/github/actions/workflow/status/tuusuario/tu-proyecto-stremthru/ci.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/tuusuario/tu-proyecto-stremthru/actions/workflows/ci.yml)
+[![License](https://img.shields.io/github/license/tuusuario/tu-proyecto-stremthru?style=for-the-badge)](https://github.com/tuusuario/tu-proyecto-stremthru/blob/master/LICENSE)
 
-# StremThru
+# Tu-Proyecto-StremThru
 
-Companion for Stremio.
+Companion for Stremio - Versión personalizada.
 
 ## Features
 

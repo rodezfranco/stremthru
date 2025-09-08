@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	stremio_store_webdl "github.com/MunifTanjim/stremthru/internal/stremio/store/webdl"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/context"
+	stremio_store_webdl "github.com/rodezfranco/stremthru/internal/stremio/store/webdl"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var pmItemsCache = cache.NewCache[[]stremio.MetaVideo](&cache.CacheConfig{

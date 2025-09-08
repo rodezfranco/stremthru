@@ -6,12 +6,12 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
-	stremio_template "github.com/MunifTanjim/stremthru/internal/stremio/template"
-	stremio_transformer "github.com/MunifTanjim/stremthru/internal/stremio/transformer"
-	stremio_userdata "github.com/MunifTanjim/stremthru/internal/stremio/userdata"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
+	stremio_template "github.com/rodezfranco/stremthru/internal/stremio/template"
+	stremio_transformer "github.com/rodezfranco/stremthru/internal/stremio/transformer"
+	stremio_userdata "github.com/rodezfranco/stremthru/internal/stremio/userdata"
 )
 
 func getTemplateData(ud *UserData, w http.ResponseWriter, r *http.Request) *TemplateData {

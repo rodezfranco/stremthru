@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/imdb_title"
-	meta_type "github.com/MunifTanjim/stremthru/internal/meta/type"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/imdb_title"
+	meta_type "github.com/rodezfranco/stremthru/internal/meta/type"
 )
 
 type IdType = meta_type.IdType

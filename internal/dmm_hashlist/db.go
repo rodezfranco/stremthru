@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 
-	"github.com/MunifTanjim/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/db"
 )
 
 type DMMHashlist struct {

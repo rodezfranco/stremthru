@@ -5,16 +5,16 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/buddy"
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/kv"
-	"github.com/MunifTanjim/stremthru/internal/peer_token"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	store_util "github.com/MunifTanjim/stremthru/internal/store/util"
-	store_video "github.com/MunifTanjim/stremthru/internal/store/video"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/buddy"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/kv"
+	"github.com/rodezfranco/stremthru/internal/peer_token"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	store_util "github.com/rodezfranco/stremthru/internal/store/util"
+	store_video "github.com/rodezfranco/stremthru/internal/store/video"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func getUser(ctx *context.StoreContext) (*store.User, error) {

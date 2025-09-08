@@ -1,8 +1,8 @@
 package store_util
 
 import (
-	ti "github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/store"
+	ti "github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func RecordTorrentInfoFromListMagnets(storeCode store.StoreCode, items []store.ListMagnetsDataItem) {

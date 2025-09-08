@@ -6,12 +6,12 @@ import (
 	"strings"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	store_video "github.com/MunifTanjim/stremthru/internal/store/video"
-	"github.com/MunifTanjim/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	store_video "github.com/rodezfranco/stremthru/internal/store/video"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 func handleProxyLinkAccess(w http.ResponseWriter, r *http.Request) {

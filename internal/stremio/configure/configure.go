@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"html/template"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/stremio/template"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/stremio/template"
 )
 
 type ConfigType string

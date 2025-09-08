@@ -3,9 +3,9 @@ package stremio_store
 import (
 	"bytes"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/stremio/configure"
-	stremio_shared "github.com/MunifTanjim/stremthru/internal/stremio/shared"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/stremio/configure"
+	stremio_shared "github.com/rodezfranco/stremthru/internal/stremio/shared"
 )
 
 func getStoreNameConfig(defaultValue string) configure.Config {

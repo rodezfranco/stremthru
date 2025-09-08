@@ -1,6 +1,6 @@
 package stremio_userdata
 
-import "github.com/MunifTanjim/stremthru/internal/stremio/configure"
+import "github.com/rodezfranco/stremthru/internal/stremio/configure"
 
 type TemplateDataUserData struct {
 	SavedUserDataKey     string

@@ -7,13 +7,13 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/core"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	meta_type "github.com/MunifTanjim/stremthru/internal/meta/type"
-	"github.com/MunifTanjim/stremthru/internal/request"
-	"github.com/MunifTanjim/stremthru/internal/server"
-	"github.com/MunifTanjim/stremthru/internal/torrent_info"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/core"
+	"github.com/rodezfranco/stremthru/internal/config"
+	meta_type "github.com/rodezfranco/stremthru/internal/meta/type"
+	"github.com/rodezfranco/stremthru/internal/request"
+	"github.com/rodezfranco/stremthru/internal/server"
+	"github.com/rodezfranco/stremthru/internal/torrent_info"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 var DefaultHTTPClient = func() *http.Client {

@@ -3,7 +3,7 @@ package worker_queue
 import (
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/config"
 )
 
 type MagnetCachePullerQueueItem struct {

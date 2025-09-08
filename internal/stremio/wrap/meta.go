@@ -3,10 +3,10 @@ package stremio_wrap
 import (
 	"net/http"
 
-	"github.com/MunifTanjim/stremthru/internal/context"
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	stremio_addon "github.com/MunifTanjim/stremthru/internal/stremio/addon"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/context"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	stremio_addon "github.com/rodezfranco/stremthru/internal/stremio/addon"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 func (ud UserData) fetchMeta(ctx *context.StoreContext, w http.ResponseWriter, r *http.Request, rType, id, extra string) error {

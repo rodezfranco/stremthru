@@ -4,9 +4,9 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/MunifTanjim/stremthru/internal/shared"
-	store_video "github.com/MunifTanjim/stremthru/internal/store/video"
-	"github.com/MunifTanjim/stremthru/store"
+	"github.com/rodezfranco/stremthru/internal/shared"
+	store_video "github.com/rodezfranco/stremthru/internal/store/video"
+	"github.com/rodezfranco/stremthru/store"
 )
 
 func handleAction(w http.ResponseWriter, r *http.Request) {

@@ -5,11 +5,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/MunifTanjim/stremthru/internal/cache"
-	"github.com/MunifTanjim/stremthru/internal/config"
-	"github.com/MunifTanjim/stremthru/internal/db"
-	"github.com/MunifTanjim/stremthru/internal/peer"
-	"github.com/MunifTanjim/stremthru/internal/worker/worker_queue"
+	"github.com/rodezfranco/stremthru/internal/cache"
+	"github.com/rodezfranco/stremthru/internal/config"
+	"github.com/rodezfranco/stremthru/internal/db"
+	"github.com/rodezfranco/stremthru/internal/peer"
+	"github.com/rodezfranco/stremthru/internal/worker/worker_queue"
 )
 
 const MAX_LIST_ITEM_COUNT = 5000

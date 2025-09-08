@@ -8,9 +8,9 @@ import (
 	"strings"
 
 	"github.com/MunifTanjim/go-ptt"
-	"github.com/MunifTanjim/stremthru/internal/util"
-	"github.com/MunifTanjim/stremthru/store"
-	"github.com/MunifTanjim/stremthru/stremio"
+	"github.com/rodezfranco/stremthru/internal/util"
+	"github.com/rodezfranco/stremthru/store"
+	"github.com/rodezfranco/stremthru/stremio"
 )
 
 var nonAlphaRegex = regexp.MustCompile("(?i)[^a-zA-Z]")
