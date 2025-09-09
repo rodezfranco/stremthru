@@ -661,7 +661,7 @@ Extra Features for Stremio.
 **Source**
 
 ```sh
-git clone https://github.com/MunifTanjim/stremthru
+git clone https://github.com/erodez/stremthru
 cd stremthru
 
 # configure
@@ -680,7 +680,7 @@ make build
 ```sh
 docker run --name stremthru -p 8080:8080 \
   -e STREMTHRU_PROXY_AUTH=username:password \
-  muniftanjim/stremthru
+  erodez/stremthru
 ```
 
 **Docker Compose**
