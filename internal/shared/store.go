@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/golang-jwt/jwt/v5"
 	"github.com/rodezfranco/stremthru/core"
 	"github.com/rodezfranco/stremthru/internal/cache"
 	"github.com/rodezfranco/stremthru/internal/config"
@@ -22,7 +23,6 @@ import (
 	"github.com/rodezfranco/stremthru/store/premiumize"
 	"github.com/rodezfranco/stremthru/store/realdebrid"
 	"github.com/rodezfranco/stremthru/store/torbox"
-	"github.com/golang-jwt/jwt/v5"
 )
 
 var adStore = alldebrid.NewStoreClient(&alldebrid.StoreClientConfig{

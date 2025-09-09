@@ -3,10 +3,10 @@ package tvdb
 import (
 	"strconv"
 
+	"github.com/alitto/pond/v2"
 	"github.com/rodezfranco/stremthru/internal/imdb_title"
 	"github.com/rodezfranco/stremthru/internal/meta"
 	"github.com/rodezfranco/stremthru/internal/util"
-	"github.com/alitto/pond/v2"
 )
 
 var tvdbItemPool = pond.NewResultPool[*TVDBItem](10)

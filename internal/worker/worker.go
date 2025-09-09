@@ -5,13 +5,13 @@ import (
 	"sync"
 	"time"
 
+	"github.com/madflojo/tasks"
 	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/rodezfranco/stremthru/internal/kv"
 	"github.com/rodezfranco/stremthru/internal/logger"
 	"github.com/rodezfranco/stremthru/internal/util"
 	"github.com/rodezfranco/stremthru/internal/worker/worker_queue"
-	"github.com/madflojo/tasks"
 )
 
 var mutex sync.Mutex

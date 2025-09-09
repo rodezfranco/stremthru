@@ -6,9 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rodezfranco/stremthru/core"
 	"github.com/rodezfranco/stremthru/internal/cache"
-	"github.com/google/uuid"
 )
 
 type Manager[T any] interface {

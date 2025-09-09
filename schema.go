@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/pressly/goose/v3"
+	"github.com/rodezfranco/stremthru/internal/db"
 )
 
 //go:embed migrations/**/*.sql

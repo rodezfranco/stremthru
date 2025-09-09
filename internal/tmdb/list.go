@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/rodezfranco/stremthru/internal/util"
 	"github.com/golang-jwt/jwt/v5"
+	"github.com/rodezfranco/stremthru/internal/util"
 )
 
 type PaginatedResult[T any] struct {

@@ -9,6 +9,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/alitto/pond/v2"
 	"github.com/rodezfranco/stremthru/internal/anilist"
 	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/rodezfranco/stremthru/internal/imdb_title"
@@ -22,7 +23,6 @@ import (
 	"github.com/rodezfranco/stremthru/internal/tvdb"
 	"github.com/rodezfranco/stremthru/internal/util"
 	"github.com/rodezfranco/stremthru/stremio"
-	"github.com/alitto/pond/v2"
 )
 
 type ExtraData struct {

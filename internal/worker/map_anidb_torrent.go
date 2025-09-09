@@ -7,12 +7,12 @@ import (
 	"sync"
 	"time"
 
+	"github.com/agnivade/levenshtein"
+	fuzzy "github.com/paul-mannino/go-fuzzywuzzy"
 	"github.com/rodezfranco/stremthru/internal/anidb"
 	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/rodezfranco/stremthru/internal/torrent_info"
 	"github.com/rodezfranco/stremthru/internal/util"
-	"github.com/agnivade/levenshtein"
-	fuzzy "github.com/paul-mannino/go-fuzzywuzzy"
 )
 
 type torrentMap struct {

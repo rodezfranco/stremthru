@@ -6,8 +6,8 @@ import (
 	"slices"
 	"time"
 
-	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/hasura/go-graphql-client"
+	"github.com/rodezfranco/stremthru/internal/config"
 )
 
 var client = graphql.NewClient(

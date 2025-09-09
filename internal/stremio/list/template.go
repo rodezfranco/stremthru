@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"strconv"
 
+	"github.com/google/uuid"
 	"github.com/rodezfranco/stremthru/internal/anilist"
 	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/rodezfranco/stremthru/internal/letterboxd"
@@ -18,7 +19,6 @@ import (
 	"github.com/rodezfranco/stremthru/internal/tmdb"
 	"github.com/rodezfranco/stremthru/internal/trakt"
 	"github.com/rodezfranco/stremthru/internal/tvdb"
-	"github.com/google/uuid"
 )
 
 var IsPublicInstance = config.IsPublicInstance

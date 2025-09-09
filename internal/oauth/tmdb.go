@@ -11,12 +11,12 @@ import (
 	"strings"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rodezfranco/stremthru/core"
 	"github.com/rodezfranco/stremthru/internal/cache"
 	"github.com/rodezfranco/stremthru/internal/config"
 	"github.com/rodezfranco/stremthru/internal/logger"
 	"github.com/rodezfranco/stremthru/internal/request"
-	"github.com/google/uuid"
 	"golang.org/x/oauth2"
 )
 

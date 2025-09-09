@@ -12,4 +12,3 @@ var StreamTemplateCinema = StreamTemplateBlob{
 {addon.name} {service.cached::istrue["⚡"||""]}{service.cached::isfalse["❌"||""]}
 `),
 }.MustParse()
-

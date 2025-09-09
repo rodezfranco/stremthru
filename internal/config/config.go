@@ -13,9 +13,9 @@ import (
 	"testing"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/rodezfranco/stremthru/core"
 	"github.com/rodezfranco/stremthru/internal/util"
-	"github.com/google/uuid"
 )
 
 const (

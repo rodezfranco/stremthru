@@ -114,5 +114,4 @@ func DecompressFromEncodedUriComponent(input string) (string, error) {
 		last = str
 	}
 
-	return "", errors.New("Unexpected end of buffer reached.")
 }

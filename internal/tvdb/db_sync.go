@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
+	"github.com/alitto/pond/v2"
 	"github.com/rodezfranco/stremthru/internal/cache"
 	"github.com/rodezfranco/stremthru/internal/db"
 	"github.com/rodezfranco/stremthru/internal/util"
-	"github.com/alitto/pond/v2"
 	"golang.org/x/sync/singleflight"
 )
 
