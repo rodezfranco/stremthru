@@ -1,5 +1,5 @@
 [![CI](https://github.com/rodezfranco/stremthru/actions/workflows/ci.yml/badge.svg)](https://github.com/rodezfranco/stremthru/actions/workflows/ci.yml)
-[![Docker](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml/badge.svg)](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml)
+[![Docker](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml/badge.svg?tags=v1.0.1)](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml)
 [![Release](https://github.com/rodezfranco/stremthru/actions/workflows/release.yml/badge.svg)](https://github.com/rodezfranco/stremthru/actions/workflows/release.yml)
 
 # Tu-Proyecto-StremThru
