@@ -4,11 +4,12 @@ import (
 	"database/sql"
 	"log"
 	"net/url"
+	"strings"
 	"time"
 
-	"github.com/rodezfranco/stremthru/internal/config"
 	_ "github.com/jackc/pgx/v5/stdlib"
-	"github.com/mattn/go-sqlite3"
+	_ "github.com/mattn/go-sqlite3"
+	"github.com/rodezfranco/stremthru/internal/config"
 )
 
 type DB struct {
@@ -81,7 +82,7 @@ var getExec = func(db Executor) dbExec {
 		retryLeft := 2
 		r, err := db.Exec(query, args...)
 		for err != nil && retryLeft > 0 {
-			if e, ok := err.(sqlite3.Error); ok && e.Code == sqlite3.ErrBusy {
+			if strings.Contains(err.Error(), "database is locked") || strings.Contains(err.Error(), "database is busy") {
 				time.Sleep(2 * time.Second)
 				r, err = db.Exec(query, args...)
 				retryLeft--
