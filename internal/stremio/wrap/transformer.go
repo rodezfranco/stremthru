@@ -159,6 +159,7 @@ var builtInTemplates = func() map[string]stremio_transformer.StreamTemplateBlob 
 
 	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Default"] = stremio_transformer.StreamTemplateDefault.Blob
 	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Raw"] = stremio_transformer.StreamTemplateRaw.Blob
+	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Cinema"] = stremio_transformer.StreamTemplateCinema.Blob
 
 	return templates
 }()
