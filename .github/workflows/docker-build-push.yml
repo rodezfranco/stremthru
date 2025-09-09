@@ -80,8 +80,8 @@ jobs:
           {
             echo 'DOCKER_IMAGE_TAGS<<EOF'
             for tag in ${TAGS}; do
-            echo "muniftanjim/stremthru:${tag}"
-            echo "ghcr.io/muniftanjim/stremthru:${tag}"
+            echo "erodez/stremthru:${tag}"
+            echo "ghcr.io/rodezfranco/stremthru:${tag}"
             done
             echo EOF
           } >> "${GITHUB_ENV}"
