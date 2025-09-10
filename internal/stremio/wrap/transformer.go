@@ -108,6 +108,7 @@ var builtInExtractors = func() map[string]stremio_transformer.StreamExtractorBlo
 	extractors[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Peerflix"] = stremio_transformer.StreamExtractorPeerflix.Blob
 	extractors[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Torrentio"] = stremio_transformer.StreamExtractorTorrentio.Blob
 	extractors[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Orion"] = stremio_transformer.StreamExtractorOrion.Blob
+	extractors[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Cinema"] = stremio_transformer.StreamExtractorCinema.Blob
 
 	return extractors
 }()
@@ -159,7 +160,6 @@ var builtInTemplates = func() map[string]stremio_transformer.StreamTemplateBlob 
 
 	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Default"] = stremio_transformer.StreamTemplateDefault.Blob
 	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Raw"] = stremio_transformer.StreamTemplateRaw.Blob
-	templates[BUILTIN_TRANSFORMER_ENTITY_ID_PREFIX+"Cinema"] = stremio_transformer.StreamTemplateCinema.Blob
 
 	return templates
 }()
