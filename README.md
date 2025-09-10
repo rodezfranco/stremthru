@@ -1,7 +1,8 @@
-[![GitHub Workflow Status: CI](https://img.shields.io/github/actions/workflow/status/tuusuario/tu-proyecto-stremthru/ci.yml?branch=main&label=CI&style=for-the-badge)](https://github.com/tuusuario/tu-proyecto-stremthru/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/tuusuario/tu-proyecto-stremthru?style=for-the-badge)](https://github.com/tuusuario/tu-proyecto-stremthru/blob/master/LICENSE)
+[![CI](https://github.com/rodezfranco/stremthru/actions/workflows/ci.yml/badge.svg)](https://github.com/rodezfranco/stremthru/actions/workflows/ci.yml)
+[![Docker](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml/badge.svg?tags=v1.0.1)](https://github.com/rodezfranco/stremthru/actions/workflows/docker-build-push.yml)
+[![Release](https://github.com/rodezfranco/stremthru/actions/workflows/release.yml/badge.svg)](https://github.com/rodezfranco/stremthru/actions/workflows/release.yml)
 
-# Tu-Proyecto-StremThru
+# rodezfranco-StremThru
 
 Companion for Stremio - Versión personalizada.
 
